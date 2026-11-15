@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,8 +30,7 @@
     body {
       background: var(--background);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.7;
     }
 
@@ -46,7 +44,7 @@
     }
 
     .container {
-      width: min(900px, 88%);
+      width: min(960px, 88%);
       margin: auto;
     }
 
@@ -89,8 +87,18 @@
     }
 
     .intro {
-      padding: 35px 0 65px;
-      max-width: 760px;
+      padding: 25px 0 65px;
+    }
+
+    .profile-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 250px;
+      align-items: center;
+      gap: clamp(32px, 6vw, 72px);
+    }
+
+    .intro-text {
+      min-width: 0;
     }
 
     .eyebrow {
@@ -103,17 +111,33 @@
     }
 
     h1 {
-      font-size: clamp(2.5rem, 7vw, 4.3rem);
+      font-size: clamp(2.5rem, 6vw, 4.3rem);
       line-height: 1.1;
       letter-spacing: -2px;
       margin-bottom: 22px;
       font-weight: 650;
     }
 
-    .intro p {
+    .intro-text > p {
       color: var(--muted);
-      font-size: 1.12rem;
-      max-width: 680px;
+      font-size: 1.08rem;
+      max-width: 600px;
+    }
+
+    .profile-image {
+      width: 100%;
+      max-width: 250px;
+      justify-self: end;
+    }
+
+    .profile-image img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 42%;
+      border-radius: 8px;
+      border: 1px solid var(--border);
     }
 
     .actions {
@@ -162,7 +186,7 @@
     }
 
     .section-content {
-      max-width: 720px;
+      max-width: 760px;
       color: var(--muted);
     }
 
@@ -220,7 +244,7 @@
       font-size: 0.85rem;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       nav {
         align-items: flex-start;
         flex-direction: column;
@@ -235,6 +259,17 @@
         padding-top: 45px;
       }
 
+      .profile-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .profile-image {
+        grid-row: 1;
+        justify-self: start;
+        max-width: 190px;
+      }
+
       .interest-list {
         grid-template-columns: 1fr;
       }
@@ -243,11 +278,9 @@
 </head>
 
 <body>
-
   <header>
     <nav class="container">
       <a class="brand" href="#">Bishnu Raj Bhatta</a>
-
       <div class="nav-links">
         <a href="#profile">Profile</a>
         <a href="#interests">Interests</a>
@@ -258,57 +291,58 @@
   </header>
 
   <main class="container">
-
     <div class="intro">
-      <div class="eyebrow">Academic Portfolio</div>
+      <div class="profile-layout">
+        <div class="intro-text">
+          <div class="eyebrow">Academic Portfolio</div>
+          <h1>Bishnu Raj Bhatta</h1>
+          <p>
+            An interdisciplinary graduate with a background in Electrical
+            Engineering and Liberal Arts, exploring the intersections of
+            artificial intelligence, ethics, governance, and philosophy
+            of technology.
+          </p>
 
-      <h1>Bishnu Raj Bhatta</h1>
+          <div class="actions">
+            <a class="button primary" href="./cv.pdf" target="_blank" rel="noopener">
+              View Curriculum Vitae
+            </a>
+            <a class="button secondary"
+               href="https://www.linkedin.com/in/bishnu-bhatta/"
+               target="_blank" rel="noopener noreferrer">
+              LinkedIn Profile
+            </a>
+          </div>
+        </div>
 
-      <p>
-        An interdisciplinary graduate with a background in Electrical
-        Engineering and Liberal Arts, exploring the intersections of
-        artificial intelligence, ethics, governance, and philosophy
-        of technology.
-      </p>
-
-      <div class="actions">
-        <a class="button primary" href="./cv.pdf" target="_blank">
-          View Curriculum Vitae
-        </a>
-
-        <a class="button secondary"
-           href="https://www.linkedin.com/in/bishnu-bhatta/"
-           target="_blank" rel="noopener noreferrer">
-          LinkedIn Profile
-        </a>
+        <div class="profile-image">
+          <img src="./profile.jpg" alt="Portrait of Bishnu Raj Bhatta">
+        </div>
       </div>
     </div>
 
     <section id="profile">
       <div class="section-label">01 / Profile</div>
       <h2>Background and Academic Direction</h2>
-
       <div class="section-content">
         <p>
-          My academic background combines Electrical Engineering
-          with a second undergraduate degree in Liberal Arts and
-          Natural Sciences. This interdisciplinary education has
-          shaped my interest in understanding technology not only
-          through its technical foundations, but also through its
-          social, ethical, and philosophical implications.
+          My academic background combines Electrical Engineering with a
+          second undergraduate degree in Liberal Arts and Natural Sciences.
+          This interdisciplinary education has shaped my interest in
+          understanding technology not only through its technical
+          foundations, but also through its social, ethical, and
+          philosophical implications.
         </p>
-
         <p>
-          My engineering studies introduced me to mathematical
-          modelling, simulation, and electrical systems. My Liberal
-          Arts education developed my interests in philosophical
-          inquiry, ethics, and independent research and writing.
+          My engineering studies introduced me to mathematical modelling,
+          simulation, and electrical systems. My Liberal Arts education
+          developed my interests in philosophical inquiry, ethics, and
+          independent research and writing.
         </p>
-
         <p>
-          I am currently developing my foundations in Natural
-          Language Processing and AI, with the aim of contributing
-          to research on responsible and accountable AI systems.
+          I am currently developing my foundations in Natural Language
+          Processing and AI, with the aim of contributing to research on
+          responsible and accountable AI systems.
         </p>
       </div>
     </section>
@@ -316,12 +350,8 @@
     <section id="interests">
       <div class="section-label">02 / Research Interests</div>
       <h2>Areas of Exploration</h2>
-
       <div class="section-content">
-        <p>
-          My developing research interests include:
-        </p>
-
+        <p>My developing research interests include:</p>
         <div class="interest-list">
           <div class="interest">Responsible NLP and AI Ethics</div>
           <div class="interest">AI Governance and Accountability</div>
@@ -336,75 +366,61 @@
     <section id="experience">
       <div class="section-label">03 / Research and Preparation</div>
       <h2>Selected Academic Work</h2>
-
       <div class="section-content">
-
         <div class="item">
           <h3>Electrical Engineering Senior Project</h3>
           <p>
-            Studied electrical-grid frequency stabilisation using
-            a Virtual Synchronous Machine. Developed and simulated
-            a MATLAB/Simulink model and documented the theoretical
-            foundations, observations, and limitations of the work.
+            Studied electrical-grid frequency stabilisation using a Virtual
+            Synchronous Machine. Developed and simulated a MATLAB/Simulink
+            model and documented the theoretical foundations, observations,
+            and limitations of the work.
           </p>
         </div>
 
         <div class="item">
           <h3>Liberal Arts Senior Thesis</h3>
           <p>
-            Completed independent academic research and writing
-            as part of my BA in Liberal Arts and Natural Sciences.
+            Completed independent academic research and writing as part
+            of my BA in Liberal Arts and Natural Sciences.
           </p>
         </div>
 
         <div class="item">
           <h3>Natural Language Processing Coursework</h3>
           <p>
-            Developing foundational knowledge in NLP, including
-            text preprocessing, classification, vector
-            representations, and language-model applications
-            through online coursework.
+            Developing foundational knowledge in NLP, including text
+            preprocessing, classification, vector representations, and
+            language-model applications through online coursework.
           </p>
         </div>
 
         <div class="item">
           <h3>Education and Curriculum Development</h3>
           <p>
-            Contributed to mathematics and science learning
-            activities, lesson design, and curriculum-related
-            educational projects.
+            Contributed to mathematics and science learning activities,
+            lesson design, and curriculum-related educational projects.
           </p>
         </div>
-
       </div>
     </section>
 
     <section id="links">
       <div class="section-label">04 / Links and Contact</div>
       <h2>Find Me Online</h2>
-
       <div class="section-content">
         <p>
-          For further information about my academic background
-          and interests, please see the links below.
+          For further information about my academic background and interests,
+          please see the links below.
         </p>
-
         <div class="links-list">
-          <a href="./cv.pdf" target="_blank">Curriculum Vitae ↗</a>
-
+          <a href="./cv.pdf" target="_blank" rel="noopener">Curriculum Vitae ↗</a>
           <a href="https://www.linkedin.com/in/bishnu-bhatta/"
-             target="_blank" rel="noopener noreferrer">
-            LinkedIn ↗
-          </a>
-
+             target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
           <a href="https://github.com/bhattabishnu"
-             target="_blank" rel="noopener noreferrer">
-            GitHub ↗
-          </a>
+             target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
@@ -412,6 +428,5 @@
       © 2026 Bishnu Raj Bhatta · Academic Portfolio
     </div>
   </footer>
-
 </body>
 </html>
